@@ -1,44 +1,18 @@
 /* Enter your solutions in this file */
 #include<stdio.h>
 
-
-float calculate_average(int length,int marks[]);
-
-int maximum(int length,int marks[]);
-
 int main(void){
-
-  int n;
-
-  int marks[n];
-
-  for (int i=0;i<n;i++){
-
-  float average = calculate_average(n,marks); 
-
-  int max = maximum(n,marks);
-
-   int min = minimum(n,marks);
-
-   
-
-  printf("average mark are : %.2f\n maximum mark are : %i\n minimum mark are : %i\n",average,max,min);
-
-  
-
-  }
-
-  
 
   /*finding average*/
 
-  float calculate_average(int length,int marks[]) {
+  float average(int len,int arr[]) {
 
-   float sum;
+   float sum = 0;
+   float average;
 
-   for (int i = 0; i<length; i++){
+   for (int c = 0; c<len; c++){
 
-   sum+=marks[i];
+   sum+=arr[c];
 
    }
 
@@ -50,17 +24,17 @@ int main(void){
 
   /*finding maximum*/
 
-  int maximum(int length,int marks[]){
+  int maximum(int len,int arr[]){
 
    int max_so_far;
 
-  max_so_far = marks[0];
+  max_so_far = arr[0];
 
-  for (int i=0; i<length; i++){
+  for (int k=0; k<len; k++){
 
-   if(marks[i] > max_so_far){
+   if(marks[k] > max_so_far){
 
-   max_so_far = marks[i];
+   max_so_far = marks[k];
 
    }
 
@@ -74,17 +48,17 @@ int main(void){
 
   /*finding minimum*/
 
-  int minimum(int length,int marks[]){
+  int minimum(int length,int arr[]){
 
    int min_so_far;
 
-  min_so_far = marks[0];
+  min_so_far = arr[0];
 
-  for (int i=0; i<length; i--){
+  for (int j=0; j<len; j++){
 
-   if(marks[i] < min_so_far){
+   if(marks[j] < min_so_far){
 
-   min_so_far = marks[i];
+   min_so_far = marks[j];
 
    }
 
@@ -93,4 +67,66 @@ int main(void){
    return min_so_far;
 
   }
-
+/* mode function*/
+int mode(int arr[], int len){
+  
+  int ar2[len];
+  
+  int l,c, max;
+  
+  int cnt = 0;
+  
+  for(int i = 0; i< len; i++){
+    
+  l = arr[i];
+  for(int j=0; j<len; j++){
+  if( arr[j] == l)
+  cnt = cnt +1;
+  }
+    
+  ar2[i] = cnt;
+  cnt = 0;
+  }
+  
+  max = ar2[0];
+  for(int m = 0; m< len; m++){
+  if(ar2[m]> max){
+  max = ar2[m];
+  }
+    
+  }
+  for(f =0; f<len; f++){
+  if(max == ar2[f])
+  break;
+  }
+  
+  return arr[f];
+  }
+  
+/*factors function*/
+  
+int factors(int num, int arr[]){
+int cpy = num;
+int cnt = 0;
+int cnt1 =0;
+for(int i = 2; i<num/2; i++){
+if(num%i ==0){
+for(int j=2; j<=i; j++){
+if(i%j==0)
+cnt+= 1;
+}
+  
+if(cnt ==1){
+while(cpy%i ==0){
+arr[cnt1] = i;
+cpy/= i;
+cnt1+= 1;
+}
+  
+cpy = num;}
+cnt = 0;
+}
+else
+continue;}
+return cnt1;
+}
