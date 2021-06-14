@@ -1,9 +1,6 @@
 /* Enter your solutions in this file */
 #include<stdio.h>
 
-#include<cs50.h>
-
-
 
 float calculate_average(int length,int marks[]);
 
@@ -13,17 +10,9 @@ int main(void){
 
   int n;
 
-  n = get_int("how many marks: ");
-
   int marks[n];
 
   for (int i=0;i<n;i++){
-
-     marks[i]= get_int("enter marks %i ",i+1);
-
-     }
-
- 
 
   float average = calculate_average(n,marks); 
 
